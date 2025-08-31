@@ -11,10 +11,12 @@
             "id": "eb5a3a2875bf7fbf",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "tldraw-view",
+              "state": {
+                "file": "[01] Concept Design/[01] TLDraw Saves/Tldraw 2025-09-01 10.09AM.md"
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Tldraw 2025-09-01 10.09AM"
             }
           }
         ]
@@ -159,11 +161,14 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "tldraw:Create new tldrawing": false
     }
   },
   "active": "eb5a3a2875bf7fbf",
   "lastOpenFiles": [
-    "Untitled.base"
+    "Untitled.base",
+    "[01] Concept Design/[01] TLDraw Saves/Tldraw 2025-09-01 10.09AM.md",
+    "[01] Concept Design/[01] TLDraw Saves"
   ]
 }
