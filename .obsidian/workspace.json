@@ -4,19 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "19b134368c0c96f4",
+        "id": "8d56a60d44828e3d",
         "type": "tabs",
         "children": [
           {
-            "id": "eb5a3a2875bf7fbf",
+            "id": "047f0c16b21c1a40",
             "type": "leaf",
             "state": {
-              "type": "tldraw-view",
-              "state": {
-                "file": "[01] Concept Design/[01] TLDraw Saves/Tldraw 2025-09-01 10.09AM.md"
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Tldraw 2025-09-01 10.09AM"
+              "title": "New tab"
             }
           }
         ]
@@ -165,10 +163,10 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "eb5a3a2875bf7fbf",
+  "active": "3af7d14e111d1668",
   "lastOpenFiles": [
-    "Untitled.base",
     "[01] Concept Design/[01] TLDraw Saves/Tldraw 2025-09-01 10.09AM.md",
+    "Untitled.base",
     "[01] Concept Design/[01] TLDraw Saves"
   ]
 }
