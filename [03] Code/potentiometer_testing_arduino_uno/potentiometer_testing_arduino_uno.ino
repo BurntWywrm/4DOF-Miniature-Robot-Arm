@@ -1,5 +1,5 @@
-// potentiometer_testing.ino
-// Code for testing a single potentiometer
+// potentiometer_testing_arduino_uno.ino
+// Code for testing a single potentiometer made for an Arduino Uno
 
 int potPin = A5; // initializes pot
 int potVal = 0; // stores the pot value
