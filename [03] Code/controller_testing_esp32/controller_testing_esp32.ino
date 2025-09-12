@@ -14,7 +14,7 @@ String button_state; // stores button state
 
 void setup()
 {
-  Serial.begin(9600); // starts serial monitor
+  Serial.begin(115200); // starts serial monitor
   pinMode(buttonPin, INPUT); // initializes button
 }
 
@@ -54,10 +54,10 @@ void current_pot_angle(int potIn){
     // Simple switch statement to declare which joint is which
     String potName; // stores pot name 
     switch(potIn){
-        case A0: potName = "Joint L1"; break;
-        case A1: potName = "Joint L2"; break;
-        case A2: potName = "Joint L3"; break;
-        case A3: potName = "Joint L4"; break;
+        case 33: potName = "Joint L1"; break;
+        case 32: potName = "Joint L2"; break;
+        case 34: potName = "Joint L3"; break;
+        case 35: potName = "Joint L4"; break;
         default: potName = "Unknown Joint";
     }
 
@@ -67,5 +67,5 @@ void current_pot_angle(int potIn){
     Serial.print(degrees);
     Serial.println(" Degrees");
     Serial.println("------------------");
-    delay(100;) // Modify if it prints too fast
+    delay(100); // Modify if it prints too fast
 }

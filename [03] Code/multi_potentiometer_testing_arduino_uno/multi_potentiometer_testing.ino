@@ -70,5 +70,5 @@ void current_pot_angle(int potIn){
     Serial.print(degrees);
     Serial.println(" Degrees");
     Serial.println("------------------");
-    delay(100;) // Modify if it prints too fast
+    delay(100); // Modify if it prints too fast
 }
