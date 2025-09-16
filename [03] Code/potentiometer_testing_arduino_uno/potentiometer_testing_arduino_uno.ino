@@ -18,8 +18,9 @@ void loop()
     Serial.println(potVal); 
 
     int potDegrees = map(potVal, 0, 1023, 0, 180); // maps the read values into angles with a max range of 180 degrees
+    
     // displays the converted pot value
-    Serial.println("Pot Degrees: ");
+    Serial.print("Pot Degrees: ");
     Serial.print(potDegrees);
     Serial.println(" Degrees");
 
