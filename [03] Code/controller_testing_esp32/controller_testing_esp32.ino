@@ -12,10 +12,10 @@ int potL4Pin = 35;
 /* Assigned button pins */
 int buttonPin = 25; 
 int buttonVal = 0;
-String buttonState;
+String buttonState = "";
 
 /* Assigned Angle Variables */
-int MAX_ANGLE = 270
+int MAX_ANGLE = 270;
 
 // Angle pins to feed through bluetooth
 int potL1Angle = 0;
@@ -26,7 +26,7 @@ int potL4Angle = 0;
 void setup()
 {
   Serial.begin(115200); // Starts serial monitor with a baud rate of 115200
-  pinMode(buttonpin, INPUT);
+  pinMode(buttonPin, INPUT);
 }
 
 void loop()
@@ -57,7 +57,7 @@ void get_button_state(){
   if (buttonVal == HIGH){
     buttonState = "Open";
   }
-  elif (buttonVal == LOW){
+  else if (buttonVal == LOW){
     buttonState = "Close";
   }
 }
@@ -79,7 +79,7 @@ void display_pot_angle(int potPin){
   int potVal = analogRead(potPin); // Stores pot value
   int potAngle = map(potVal, 0, 4095, 0, MAX_ANGLE); // Maps potentiometer from 0 to 270 degrees
   /* Simple switch statement to assign the correct potentiometer name */
-  String potName // Stores pot name
+  String potName = ""; // Stores pot name
   switch(potPin){
     case 33: potName = "Joint L1"; break;
     case 32: potName = "Joint L2"; break;
