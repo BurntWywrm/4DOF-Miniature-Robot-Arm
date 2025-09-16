@@ -1,71 +1,95 @@
 // controller_testing_esp32.ino
-// Code for testing the controller, made for the ESP32 board
+// This code is to recieve and store potentiometer signals to the ADC pins of the ESP32
+// Then mapping the recieved inputs 0 to 270 degrees.
 
-// Assigned variables for each of the pots
-// LX dicates the joint heirarchy, i.e. Base to Wrist
+/* Assigned pot pins */
+/* LX dictates the pin heirarchy, base, shoulder, elbow, wrist. */
 int potL1Pin = 33;
 int potL2Pin = 32;
 int potL3Pin = 34;
 int potL4Pin = 35;
 
-int buttonPin = 25; // button pin for the end effector
-int buttonVal = 0; // stores button value
-String button_state; // stores button state
+/* Assigned button pins */
+int buttonPin = 25; 
+int buttonVal = 0;
+String buttonState;
+
+/* Assigned Angle Variables */
+int MAX_ANGLE = 270
+
+// Angle pins to feed through bluetooth
+int potL1Angle = 0;
+int potL2Angle = 0;
+int potL3Angle = 0;
+int potL4Angle = 0;
 
 void setup()
 {
-  Serial.begin(115200); // starts serial monitor
-  pinMode(buttonPin, INPUT); // initializes button
+  Serial.begin(115200); // Starts serial monitor with a baud rate of 115200
+  pinMode(buttonpin, INPUT);
 }
 
 void loop()
 {
-  current_pot_angle(potL1Pin);
-  current_pot_angle(potL2Pin);
-  current_pot_angle(potL3Pin);
-  current_pot_angle(potL4Pin);
-  current_button_state();
+  /* Main code functionality */
+  get_angle(potL1Pin);
+  get_angle(potL2Pin);
+  get_angle(potL3Pin);
+  get_angle(potL4Pin);
+  get_button_state();
+
+  /* Displays info */
+  display_pot_angle(potL1Pin);
+  display_pot_angle(potL2Pin);
+  display_pot_angle(potL3Pin);
+  display_pot_angle(potL4Pin);
+
+  // Displays button state
+  Serial.print("button state: ");
+  Serial.println(buttonState);
+  Serial.println("---------------------");
+  delay(500);
 }
 
-void current_button_state(){
-// Declares and displays current button state
-    buttonVal = digitalRead(buttonPin); // stores button value
-    
-    // Simple if else statement to declare the state of the button
-    if (buttonVal == HIGH){
-        button_state = "On";
-    } else if (buttonVal == LOW){
-        button_state = "Off";
-    }
+void get_button_state(){
+  buttonVal = digitalRead(buttonPin);
 
-    // Displays button state in the serial monitor
-    Serial.print("Button State: ");
-    Serial.println(button_state);
-    Serial.println("------------------");
+  if (buttonVal == HIGH){
+    buttonState = "Open";
+  }
+  elif (buttonVal == LOW){
+    buttonState = "Close";
+  }
 }
 
-void current_pot_angle(int potIn){
-// Declares and displays current pot angle
-    // Declares current pot angle
-    int potVal = analogRead(potIn); // Stores the pot value being fed into the function
-    int degrees = map(potVal, 0, 1023, 0, 180); // Maps the potVal into degrees
+void get_angle(int potPin){
+  int potVal = analogRead(potPin); // Stores pot value
+  int potAngle = map(potVal, 0, 4095, 0, MAX_ANGLE); // Maps potentiometer from 0 to 270 degrees
 
-    // Names pot respective to the its analog pin number
-    // Simple switch statement to declare which joint is which
-    String potName; // stores pot name 
-    switch(potIn){
-        case 33: potName = "Joint L1"; break;
-        case 32: potName = "Joint L2"; break;
-        case 34: potName = "Joint L3"; break;
-        case 35: potName = "Joint L4"; break;
-        default: potName = "Unknown Joint";
-    }
+  /* Simple switch statement to store the correct variable */
+  switch(potPin){
+    case 33: potL1Angle = potAngle; break;
+    case 32: potL2Angle = potAngle; break;
+    case 34: potL3Angle = potAngle; break;
+    case 35: potL4Angle = potAngle; break;
+  }
+}
 
-    // Displays current pot angle
-    Serial.print(potName);
-    Serial.print(": ");
-    Serial.print(degrees);
-    Serial.println(" Degrees");
-    Serial.println("------------------");
-    delay(100); // Modify if it prints too fast
+void display_pot_angle(int potPin){
+  int potVal = analogRead(potPin); // Stores pot value
+  int potAngle = map(potVal, 0, 4095, 0, MAX_ANGLE); // Maps potentiometer from 0 to 270 degrees
+  /* Simple switch statement to assign the correct potentiometer name */
+  String potName // Stores pot name
+  switch(potPin){
+    case 33: potName = "Joint L1"; break;
+    case 32: potName = "Joint L2"; break;
+    case 34: potName = "Joint L3"; break;
+    case 35: potName = "Joint L4"; break;
+  }
+
+  /* Displays current pot angle */
+  Serial.print(potName);
+  Serial.print(": ");
+  Serial.print(potAngle);
+  Serial.println(" Degrees");
 }
