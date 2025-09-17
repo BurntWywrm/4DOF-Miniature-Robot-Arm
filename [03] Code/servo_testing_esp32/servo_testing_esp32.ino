@@ -30,15 +30,23 @@ void setup()
 
 void loop()
 {
-  // Sweeps the servo back and forth
-  for (int pulselen = MIN; pulselen <= MAX; pulselen += 5){
-    pwm.setPWM(SERVOL1, 0, pulselen);
-    delay(10);
+  /* Sweeps the servo back and forth */
+  for (int posDegrees = 0; posDegrees <= 270; posDegrees += 5){
+    int pulse_width = map(posDegrees, 0, 270, MIN, MAX); // Determine pwm pulse width
+    pwm.setPWM(SERVOL1, 0, pulse_width); // Write to Servo
+    // Print to serial monitor
+    Serial.print("Servo: ");
+    Serial.println(posDegrees);
+    delay(30);
   }
   delay(250); // quick pause
-  for (int pulselen = MAX; pulselen >= MIN; pulselen -= 5){
-    pwm.setPWM(SERVOL1, 0, pulselen);
-    delay(10);
+  for (int posDegrees = 270; posDegrees >= 0; posDegrees -= 5){
+    int pulse_width = map(posDegrees, 0, 270, MIN, MAX); // Determine pwm pulse width
+    pwm.setPWM(SERVOL1, 0, pulse_width); // Write to Servo
+    // Print to serial monitor
+    Serial.print("Servo: ");
+    Serial.println(posDegrees);
+    delay(30);
   }
   delay(250); // quick pause
 }
