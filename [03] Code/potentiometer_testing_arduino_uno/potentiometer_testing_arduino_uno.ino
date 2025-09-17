@@ -1,4 +1,5 @@
 // potentiometer_testing_arduino_uno.ino
+// https://github.com/BurntWywrm/4DOF-Miniature-Robot-Arm
 // Code for testing a single potentiometer made for an Arduino Uno
 
 int potPin = A5; // initializes pot

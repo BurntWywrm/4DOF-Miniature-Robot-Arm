@@ -1,4 +1,5 @@
 // controller_testing_esp32.ino
+// https://github.com/BurntWywrm/4DOF-Miniature-Robot-Arm
 // This code is to recieve and store potentiometer signals to the ADC pins of the ESP32
 // Then mapping the recieved inputs 0 to 270 degrees.
 

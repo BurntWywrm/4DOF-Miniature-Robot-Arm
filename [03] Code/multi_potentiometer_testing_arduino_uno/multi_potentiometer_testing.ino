@@ -1,4 +1,5 @@
 // multi_potentiometer_testing.ino
+// https://github.com/BurntWywrm/4DOF-Miniature-Robot-Arm
 // Code for testing multiple potentiometers for an Arduino Uno (and also a button)
 
 // Assigned variables for each of the potentiometers
