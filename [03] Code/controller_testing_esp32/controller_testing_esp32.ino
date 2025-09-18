@@ -27,7 +27,7 @@ int potL4Angle = 0;
 void setup()
 {
   Serial.begin(115200); // Starts serial monitor with a baud rate of 115200
-  pinMode(buttonPin, INPUT);
+  pinMode(buttonPin, INPUT_PULLUP);
 }
 
 void loop()
