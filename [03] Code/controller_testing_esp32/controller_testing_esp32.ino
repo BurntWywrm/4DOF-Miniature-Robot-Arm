@@ -55,11 +55,11 @@ void loop()
 void get_button_state(){
   buttonVal = digitalRead(buttonPin);
 
-  if (buttonVal == HIGH){
-    buttonState = "Open";
-  }
-  else if (buttonVal == LOW){
+  if (buttonVal == LOW){
     buttonState = "Close";
+  }
+  else{
+    buttonState = "Open";
   }
 }
 
