@@ -49,7 +49,7 @@ void loop()
   Serial.print("button state: ");
   Serial.println(buttonState);
   Serial.println("---------------------");
-  delay(500);
+  delay(250);
 }
 
 void get_button_state(){
