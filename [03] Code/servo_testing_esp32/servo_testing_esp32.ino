@@ -12,7 +12,7 @@
 
 // Servo Motor Connectors
 // Configure as necessary
-#define SERVOL1 0
+#define SERVOL1
 
 #define FREQUENCY 50
 
@@ -23,6 +23,9 @@ void setup()
 {
   Serial.begin(115200); // Serial Monitor initilization
   
+    // Explicitly set I2C pins for ESP32: SDA = 21, SCL = 22
+  Wire.begin(21, 22);
+
   // Initializes PWM
   pwm.begin();
   pwm.setPWMFreq(FREQUENCY);

@@ -5,10 +5,10 @@
 
 /* Assigned pot pins */
 /* LX dictates the pin heirarchy, base, shoulder, elbow, wrist. */
-int potL1Pin = 33;
-int potL2Pin = 32;
-int potL3Pin = 35;
-int potL4Pin = 34;
+int potL1Pin = 34;
+int potL2Pin = 35;
+int potL3Pin = 32;
+int potL4Pin = 33;
 
 /* Assigned button pins */
 int buttonPin = 25; 
@@ -69,10 +69,10 @@ void get_angle(int potPin){
 
   /* Simple switch statement to store the correct variable */
   switch(potPin){
-    case 33: potL1Angle = potAngle; break;
-    case 32: potL2Angle = potAngle; break;
-    case 35: potL3Angle = potAngle; break;
-    case 34: potL4Angle = potAngle; break;
+    case 34: potL1Angle = potAngle; break;
+    case 35: potL2Angle = potAngle; break;
+    case 32: potL3Angle = potAngle; break;
+    case 33: potL4Angle = potAngle; break;
   }
 }
 
@@ -82,10 +82,10 @@ void display_pot_angle(int potPin){
   /* Simple switch statement to assign the correct potentiometer name */
   String potName = ""; // Stores pot name
   switch(potPin){
-    case 33: potName = "Joint L1"; break;
-    case 32: potName = "Joint L2"; break;
-    case 35: potName = "Joint L3"; break;
-    case 34: potName = "Joint L4"; break;
+    case 34: potName = "Joint L1"; break;
+    case 35: potName = "Joint L2"; break;
+    case 32: potName = "Joint L3"; break;
+    case 33: potName = "Joint L4"; break;
   }
 
   /* Displays current pot angle */
